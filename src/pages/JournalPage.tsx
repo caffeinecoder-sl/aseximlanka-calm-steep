@@ -1,9 +1,12 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { featuredJournalArticle, journalArticles } from "@/data/journal";
+import journalHero from "../assets/journal-hero.jpg";
 
-const JournalVisual = ({ variant, mark }: { variant: string; mark: string }) => (
+const JournalVisual = ({ variant, mark, image }: { variant: string; mark: string; image?: string }) => (
   <div className={`journal-visual journal-visual-${variant}`} aria-hidden="true">
+    {image && <img className="journal-visual-photo" src={image} alt="" loading="lazy" />}
+    {image && <span className="journal-visual-veil" />}
     <div className="journal-visual-grid" />
     <div className="journal-visual-orbit orbit-one" />
     <div className="journal-visual-orbit orbit-two" />
@@ -24,7 +27,12 @@ const JournalPage = () => {
   return (
     <div className="min-h-screen bg-[#fffaf0] text-[#14372b]">
       <section className="journal-hero relative overflow-hidden bg-[#08271e] text-[#fff9ed]">
-        <div className="journal-hero-field" aria-hidden="true">
+        <div
+          className="journal-hero-field generated-hero-stage"
+          style={{ backgroundImage: `url(${journalHero})` }}
+          aria-hidden="true"
+        >
+          <div className="generated-hero-overlay" />
           <div className="journal-hero-ring ring-one" />
           <div className="journal-hero-ring ring-two" />
           <div className="journal-hero-line line-one" />
@@ -64,7 +72,7 @@ const JournalPage = () => {
               onClick={() => openArticle(featuredJournalArticle.slug)}
               className="journal-feature group text-left"
             >
-              <JournalVisual variant={featuredJournalArticle.visual} mark="01" />
+              <JournalVisual variant={featuredJournalArticle.visual} mark="01" image={journalHero} />
             </button>
 
             <div data-reveal="right" className="flex flex-col justify-between border-y border-[#14372b]/[0.14] py-8 lg:py-10">

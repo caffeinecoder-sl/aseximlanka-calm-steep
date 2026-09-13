@@ -82,6 +82,30 @@
   isolation: isolate;
 }
 
+.journal-visual-photo,
+.journal-visual-veil {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.journal-visual-photo {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.76) contrast(1.04) brightness(0.74);
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 800ms ease;
+}
+
+.journal-visual-veil {
+  background: linear-gradient(145deg, rgba(4, 32, 23, 0.18), rgba(3, 25, 18, 0.64));
+}
+
+.journal-feature:hover .journal-visual-photo {
+  filter: saturate(0.9) contrast(1.05) brightness(0.83);
+  transform: scale(1.045);
+}
+
 .journal-feature .journal-visual {
   min-height: clamp(420px, 58vw, 680px);
 }

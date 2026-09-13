@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { journalArticles } from "@/data/journal";
+import journalHero from "../assets/journal-hero.jpg";
 
 const JournalArticlePage = () => {
   const navigate = useNavigate();
@@ -33,7 +34,12 @@ const JournalArticlePage = () => {
   return (
     <article className="min-h-screen bg-[#fffaf0] text-[#14372b]">
       <header className="article-hero relative overflow-hidden bg-[#08271e] text-[#fff9ed]">
-        <div className={`article-hero-visual article-hero-${article.visual}`} aria-hidden="true">
+        <div
+          className={`article-hero-visual article-hero-${article.visual} generated-hero-stage`}
+          style={{ backgroundImage: `url(${journalHero})` }}
+          aria-hidden="true"
+        >
+          <div className="generated-hero-overlay" />
           <div className="article-orbit orbit-one" />
           <div className="article-orbit orbit-two" />
           <div className="article-leaf leaf-one" />

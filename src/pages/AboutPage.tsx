@@ -1,5 +1,6 @@
 import { ArrowRight, Compass, Handshake, Leaf, PackageCheck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import aboutHeritageHero from "../assets/about-heritage-hero.jpg";
 
 const milestones = [
   {
@@ -55,7 +56,12 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-[#fffaf0] text-[#14372b]">
       <section className="relative min-h-[84svh] overflow-hidden bg-[#08271e] text-[#fff9ed]">
-        <div className="house-art-stage absolute inset-0 min-h-0" aria-hidden="true">
+        <div
+          className="house-art-stage generated-hero-stage absolute inset-0 min-h-0"
+          style={{ backgroundImage: `url(${aboutHeritageHero})` }}
+          aria-hidden="true"
+        >
+          <div className="generated-hero-overlay" />
           <div className="house-art-grid" />
           <div className="heritage-dial">
             <span className="heritage-year y1977">1977</span>

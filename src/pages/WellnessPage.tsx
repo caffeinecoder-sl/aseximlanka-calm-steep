@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight, Heart, Home, Leaf, Sun } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import wellnessHero from "../assets/wellness-hero.jpg";
 
 const pillars = [
   {
@@ -42,7 +43,12 @@ const WellnessPage = () => {
   return (
     <div className="min-h-screen bg-[#fffaf0] text-[#14372b]">
       <section className="relative min-h-[84svh] overflow-hidden bg-[#08271e] text-[#fff9ed]">
-        <div className="wellness-hero-art" aria-hidden="true">
+        <div
+          className="wellness-hero-art generated-hero-stage"
+          style={{ backgroundImage: `url(${wellnessHero})` }}
+          aria-hidden="true"
+        >
+          <div className="generated-hero-overlay generated-hero-overlay-soft" />
           <div className="wellness-sun" />
           <div className="wellness-terrace" />
           <div className="house-art-grid" />
@@ -101,7 +107,9 @@ const WellnessPage = () => {
 
       <section className="bg-[#0a2e23] py-24 text-[#fff9ed] md:py-32 lg:py-36">
         <div className="mx-auto grid max-w-[1440px] gap-14 px-5 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-20 lg:px-12">
-          <div data-reveal="left" className="wellness-landscape" aria-label="Abstract Eden Harvest landscape">
+          <div data-reveal="left" className="wellness-landscape" aria-label="Eden Harvest landscape overlooking water and forested hills">
+            <img className="section-art-photo" src={wellnessHero} alt="" loading="lazy" />
+            <span className="section-art-veil" aria-hidden="true" />
             <span className="sun" aria-hidden="true" /><span className="ridge" aria-hidden="true" /><span className="waterline" aria-hidden="true" />
             <span className="absolute left-7 top-7 text-[0.54rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">15 acres · garden · water · paddy · rest</span>
             <span className="absolute bottom-7 left-7 font-serif text-3xl text-[#fff9ed]">A living landscape</span>
@@ -138,7 +146,12 @@ const WellnessPage = () => {
       </section>
 
       <section className="relative min-h-[66svh] overflow-hidden bg-[#08271e] text-[#fff9ed]">
-        <div className="wellness-hero-art absolute inset-0" aria-hidden="true">
+        <div
+          className="wellness-hero-art generated-hero-stage absolute inset-0"
+          style={{ backgroundImage: `url(${wellnessHero})` }}
+          aria-hidden="true"
+        >
+          <div className="generated-hero-overlay generated-hero-overlay-soft" />
           <div className="wellness-sun" /><div className="wellness-terrace" /><div className="absolute inset-0 premium-grain opacity-[0.07]" />
         </div>
         <div className="relative z-10 mx-auto flex min-h-[66svh] max-w-[1440px] items-center px-5 py-24 sm:px-8 lg:px-12">

@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import contactSourcingHero from "../assets/contact-sourcing-hero.jpg";
 
 const ContactPage = () => {
   const { toast } = useToast();
@@ -38,7 +39,12 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-[#fffaf0] text-[#14372b]">
       <section className="relative min-h-[76svh] overflow-hidden bg-[#08271e] text-[#fff9ed]">
-        <div className="house-art-stage absolute inset-0 min-h-0" aria-hidden="true">
+        <div
+          className="house-art-stage generated-hero-stage absolute inset-0 min-h-0"
+          style={{ backgroundImage: `url(${contactSourcingHero})` }}
+          aria-hidden="true"
+        >
+          <div className="generated-hero-overlay" />
           <div className="house-art-grid" />
           <div className="house-art-leaf" />
           <span className="house-coordinate top">TRADE BRIEF · SRI LANKA</span>

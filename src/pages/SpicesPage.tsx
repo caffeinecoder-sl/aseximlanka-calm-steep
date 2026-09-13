@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight, Leaf, PackageCheck, Scale, ShieldCheck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import spicesHero from "../assets/spices-hero.jpg";
 
 const spicePortfolio = [
   {
@@ -80,7 +81,12 @@ const SpicesPage = () => {
   return (
     <div className="min-h-screen bg-[#fffaf0] text-[#14372b]">
       <section className="relative min-h-[84svh] overflow-hidden bg-[#2c2118] text-[#fff9ed]">
-        <div className="spice-hero-art" aria-hidden="true">
+        <div
+          className="spice-hero-art generated-hero-stage"
+          style={{ backgroundImage: `url(${spicesHero})` }}
+          aria-hidden="true"
+        >
+          <div className="generated-hero-overlay generated-hero-overlay-warm" />
           <div className="spice-quill" />
           <span className="spice-bead b1" /><span className="spice-bead b2" /><span className="spice-bead b3" /><span className="spice-bead b4" />
           <div className="house-art-grid" />
@@ -153,7 +159,9 @@ const SpicesPage = () => {
 
       <section className="bg-[#2b2118] py-24 text-[#fff9ed] md:py-32 lg:py-36">
         <div className="mx-auto grid max-w-[1440px] gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-12">
-          <div data-reveal="left" className="cinnamon-study" aria-label="Abstract study of Ceylon cinnamon">
+          <div data-reveal="left" className="cinnamon-study" aria-label="Ceylon cinnamon and Sri Lankan spice study">
+            <img className="section-art-photo" src={spicesHero} alt="" loading="lazy" />
+            <span className="section-art-veil section-art-veil-warm" aria-hidden="true" />
             <span className="absolute left-7 top-7 text-[0.54rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">Signature origin · Cinnamomum verum</span>
             <span className="absolute bottom-7 left-7 font-serif text-4xl text-[#fff9ed]">Ceylon cinnamon</span>
           </div>

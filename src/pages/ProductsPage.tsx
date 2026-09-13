@@ -1,5 +1,7 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import productsTeaHero from "../assets/products-tea-hero.jpg";
+import privateLabelAtelier from "../assets/private-label-atelier.jpg";
 
 const teaFamilies = [
   {
@@ -80,7 +82,12 @@ const ProductsPage = () => {
   return (
     <div className="min-h-screen bg-[#fffaf0] text-[#14372b]">
       <section className="tea-hero relative min-h-[90svh] overflow-hidden text-[#fff9ed]">
-        <div className="tea-hero-art" aria-hidden="true">
+        <div
+          className="tea-hero-art generated-hero-stage"
+          style={{ backgroundImage: `url(${productsTeaHero})` }}
+          aria-hidden="true"
+        >
+          <div className="generated-hero-overlay" />
           <div className="tea-hero-orbit" />
           <div className="tea-hero-leaf" />
           <div className="tea-contours" />
@@ -293,6 +300,7 @@ const ProductsPage = () => {
       <section className="bg-[#efe2cc] py-24 md:py-32 lg:py-36">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-20 lg:px-12">
           <div data-reveal="left" className="tea-private-art">
+            <img className="tea-private-photo" src={privateLabelAtelier} alt="" loading="lazy" />
             <div className="tea-caddy-ring" aria-hidden="true" />
             <div className="tea-caddy" aria-hidden="true" />
             <span className="absolute bottom-8 left-8 text-[0.52rem] font-semibold uppercase tracking-[0.2em] text-[#8d5c3f]/70">

@@ -191,6 +191,32 @@
 }
 
 /* Shared page art */
+.generated-hero-stage {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.generated-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 22, 16, 0.97) 0%, rgba(4, 27, 20, 0.9) 34%, rgba(5, 30, 22, 0.57) 58%, rgba(3, 23, 17, 0.22) 78%, rgba(3, 21, 16, 0.38) 100%),
+    linear-gradient(180deg, rgba(4, 24, 18, 0.14), transparent 45%, rgba(3, 20, 15, 0.63));
+}
+
+.generated-hero-overlay-warm {
+  background:
+    linear-gradient(90deg, rgba(28, 19, 12, 0.97) 0%, rgba(34, 23, 15, 0.9) 34%, rgba(34, 24, 16, 0.56) 58%, rgba(18, 25, 18, 0.2) 80%, rgba(13, 24, 18, 0.38) 100%),
+    linear-gradient(180deg, rgba(24, 16, 10, 0.12), transparent 45%, rgba(16, 12, 8, 0.64));
+}
+
+.generated-hero-overlay-soft {
+  background:
+    linear-gradient(90deg, rgba(3, 24, 17, 0.96) 0%, rgba(4, 31, 22, 0.87) 34%, rgba(6, 38, 27, 0.52) 58%, rgba(4, 29, 21, 0.16) 80%, rgba(3, 23, 17, 0.28) 100%),
+    linear-gradient(180deg, rgba(4, 28, 20, 0.08), transparent 44%, rgba(3, 24, 17, 0.54));
+}
+
 .house-art-stage {
   position: relative;
   min-height: 34rem;
@@ -489,6 +515,42 @@
   top: 5.2rem;
   transform: rotate(29deg) scale(0.82);
   opacity: 0.62;
+}
+
+.section-art-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 1.25s var(--house-ease), filter 900ms ease;
+}
+
+.section-art-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(5, 34, 24, 0.28), rgba(3, 24, 17, 0.74));
+}
+
+.section-art-veil-warm {
+  background: linear-gradient(145deg, rgba(41, 27, 17, 0.18), rgba(22, 16, 10, 0.68));
+}
+
+.cinnamon-study::before,
+.cinnamon-study::after {
+  z-index: 2;
+}
+
+.cinnamon-study > span:not(.section-art-veil),
+.wellness-landscape > span:not(.section-art-veil) {
+  z-index: 3;
+}
+
+.cinnamon-study:hover .section-art-photo,
+.wellness-landscape:hover .section-art-photo {
+  filter: saturate(1.08) contrast(1.03);
+  transform: scale(1.045);
 }
 
 /* Wellness art */
