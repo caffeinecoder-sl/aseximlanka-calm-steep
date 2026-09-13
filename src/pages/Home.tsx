@@ -1,6 +1,11 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { journalArticles } from "../data/journal";
+import heroTeaPlantation from "../assets/hero-tea-plantation.jpg";
+import singleOriginCollection from "../assets/collection-single-origin.jpg";
+import signatureBlendsCollection from "../assets/collection-signature-blends.jpg";
+import privateLabelCollection from "../assets/collection-private-label.jpg";
+import privateLabelAtelier from "../assets/private-label-atelier.jpg";
 
 const teaRegions = [
   "Nuwara Eliya",
@@ -18,7 +23,8 @@ const collections = [
     title: "Single-origin Ceylon",
     description:
       "Distinctive teas selected to preserve the character of origin, elevation, season, and manufacture.",
-    visualClass: "",
+    visualClass: "variant-one",
+    image: singleOriginCollection,
     mark: "C",
   },
   {
@@ -27,6 +33,7 @@ const collections = [
     description:
       "Balanced profiles developed for retail, hospitality, gifting, and market-specific preferences.",
     visualClass: "variant-two",
+    image: signatureBlendsCollection,
     mark: "B",
   },
   {
@@ -35,6 +42,7 @@ const collections = [
     description:
       "Tea prepared as a complete brand experience across caddies, pouches, sachets, gift boxes, and bulk formats.",
     visualClass: "variant-three",
+    image: privateLabelCollection,
     mark: "P",
   },
 ];
@@ -106,6 +114,7 @@ const divisions = [
     copy: "Cinnamon, pepper, cloves, cardamom, nutmeg, turmeric, and ginger prepared for international buyers.",
     path: "/spices",
     panelClass: "spice",
+    image: "/spices/image2.jpeg",
     mark: "S",
   },
   {
@@ -114,6 +123,7 @@ const divisions = [
     copy: "A slower expression of Sri Lanka through gardens, nature, wellness, hospitality, and place.",
     path: "/wellness",
     panelClass: "wellness",
+    image: "/welness/image1.PNG",
     mark: "W",
   },
 ];
@@ -131,6 +141,11 @@ const Home = () => {
     <div className="min-h-screen bg-[#f7f0e3] text-[#14372b]">
       <section className="hero-stage relative min-h-[100svh] overflow-hidden bg-[#092d22] text-[#fff9ed]">
         <div className="origin-canvas" aria-hidden="true">
+          <img
+            className="origin-photo"
+            src={heroTeaPlantation}
+            alt=""
+          />
           <div className="origin-grid" />
           <div className="origin-orbit" />
           <div className="origin-axis" />
@@ -267,7 +282,10 @@ const Home = () => {
           <div className="grid gap-5 lg:grid-cols-12 lg:grid-rows-[330px_330px]">
             {collections.map((collection, index) => (
               <button data-reveal="scale" data-reveal-delay={(index * 0.08).toFixed(2)} key={collection.title} onClick={() => go("/products")} className={`luxury-card luxury-frame group relative overflow-hidden bg-[#0c3025] text-left ${index === 0 ? "lg:col-span-7 lg:row-span-2" : "lg:col-span-5 lg:row-span-1"}`}>
-                <div className={`collection-visual ${collection.visualClass}`} aria-hidden="true"><span className="collection-mark">{collection.mark}</span></div>
+                <div className={`collection-visual ${collection.visualClass}`} aria-hidden="true">
+                  <img className="collection-photo" src={collection.image} alt="" loading="lazy" />
+                  <span className="collection-mark">{collection.mark}</span>
+                </div>
                 <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#071f18]/[0.96] via-[#071f18]/[0.2] to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 z-[4] p-6 sm:p-8 lg:p-9">
                   <div className="mb-4 flex items-center gap-3 text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]"><span>{collection.number}</span><span className="h-px w-8 bg-[#e1c27c]/[0.7]" /><span>Collection</span></div>
@@ -304,8 +322,9 @@ const Home = () => {
 
       <section className="bg-[#efe2cc] py-24 md:py-32 lg:py-36">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-12">
-          <div data-reveal="left" className="atelier-stage" aria-label="Abstract premium private-label presentation">
-            <div className="atelier-line one" aria-hidden="true" /><div className="atelier-line two" aria-hidden="true" /><div className="atelier-tin" aria-hidden="true" />
+          <div data-reveal="left" className="atelier-stage">
+            <img className="atelier-photo" src={privateLabelAtelier} alt="Unbranded Ceylon tea tin, pouch, and presentation card" loading="lazy" />
+            <div className="atelier-line one" aria-hidden="true" /><div className="atelier-line two" aria-hidden="true" />
             <div className="absolute bottom-7 left-7 z-[3] text-[0.56rem] font-semibold uppercase tracking-[0.24em] text-[#8d5c3f]">Designed around your market · your cup · your presentation</div>
           </div>
 
@@ -357,7 +376,11 @@ const Home = () => {
             <div className="grid gap-5 md:grid-cols-2">
               {divisions.map((division, index) => (
                 <button data-reveal="scale" data-reveal-delay={(index * 0.08).toFixed(2)} key={division.title} onClick={() => go(division.path)} className="group text-left">
-                  <div className={`division-panel ${division.panelClass}`} aria-hidden="true"><span className="division-label">{division.mark}</span></div>
+                  <div className={`division-panel ${division.panelClass}`} aria-hidden="true">
+                    <img className="division-photo" src={division.image} alt="" />
+                    <span className="division-veil" />
+                    <span className="division-label">{division.mark}</span>
+                  </div>
                   <div className="flex items-start justify-between gap-5 border-b border-[#14372b]/[0.14] py-5">
                     <div><p className="text-[0.57rem] font-semibold uppercase tracking-[0.2em] text-[#8d5c3f]">{division.eyebrow}</p><h3 className="mt-2 font-serif text-3xl font-normal text-[#14372b]">{division.title}</h3><p className="mt-3 max-w-lg text-sm leading-6 text-[#66695f]">{division.copy}</p></div>
                     <span className="mt-1 grid h-9 w-9 shrink-0 place-items-center border border-[#8d5c3f]/[0.35] text-[#8d5c3f] transition-all duration-500 group-hover:-translate-y-1 group-hover:bg-[#14372b] group-hover:text-[#fff9ed]"><ArrowUpRight className="h-4 w-4 stroke-[1.5]" /></span>
