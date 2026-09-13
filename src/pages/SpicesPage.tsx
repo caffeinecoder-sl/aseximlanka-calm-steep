@@ -1,47 +1,59 @@
 import { ArrowRight, ArrowUpRight, Leaf, PackageCheck, Scale, ShieldCheck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import spicesHero from "../assets/spices-hero.jpg";
+import cinnamonImage from "../assets/spice-cinnamon.jpg";
+import blackPepperImage from "../assets/spice-black-pepper.jpg";
+import clovesImage from "../assets/spice-cloves.jpg";
+import cardamomImage from "../assets/spice-cardamom.jpg";
+import nutmegMaceImage from "../assets/spice-nutmeg-mace.jpg";
+import turmericGingerImage from "../assets/spice-turmeric-ginger.jpg";
 
 const spicePortfolio = [
   {
     number: "01",
-    mark: "C",
     name: "Ceylon Cinnamon",
+    image: cinnamonImage,
+    imageAlt: "Ceylon cinnamon quills and curls on a dark green stone surface",
     description: "Delicate, layered, and naturally sweet—the signature spice of Sri Lankan origin.",
     notes: ["Quills", "Cut cinnamon", "Powder", "Private label"],
   },
   {
     number: "02",
-    mark: "P",
     name: "Black Pepper",
+    image: blackPepperImage,
+    imageAlt: "Whole black peppercorns spilling from a brass bowl",
     description: "Aromatic, bright, and assertive pepper selected for culinary, retail, and bulk programs.",
     notes: ["Whole", "Cracked", "Ground", "Bulk"],
   },
   {
     number: "03",
-    mark: "CL",
     name: "Cloves",
+    image: clovesImage,
+    imageAlt: "Whole dried cloves in a dark ceramic bowl",
     description: "Warm, concentrated spice character with the unmistakable intensity associated with island-grown cloves.",
     notes: ["Whole cloves", "Sorted grades", "Retail packs", "Bulk"],
   },
   {
     number: "04",
-    mark: "CA",
     name: "Cardamom",
+    image: cardamomImage,
+    imageAlt: "Green cardamom pods in a dark ceramic bowl",
     description: "Fragrant pods selected for aroma, appearance, and the needs of premium food and beverage programs.",
     notes: ["Whole pods", "Selected lots", "Retail packs", "Bulk"],
   },
   {
     number: "05",
-    mark: "N",
     name: "Nutmeg & Mace",
+    image: nutmegMaceImage,
+    imageAlt: "Whole nutmeg and bright mace strands in a brass scoop",
     description: "Warm, complex spice profiles for culinary, ingredient, and specialty retail applications.",
     notes: ["Whole nutmeg", "Mace", "Ground", "Bulk"],
   },
   {
     number: "06",
-    mark: "T",
     name: "Turmeric & Ginger",
+    image: turmericGingerImage,
+    imageAlt: "Fresh turmeric and ginger roots with ground turmeric",
     description: "Sri Lankan roots prepared for culinary, wellness, ingredient, and private-label collections.",
     notes: ["Whole", "Dried", "Powder", "Private label"],
   },
@@ -138,9 +150,10 @@ const SpicesPage = () => {
                 <div className="flex items-center gap-3 lg:block"><span className="text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-[#9a7650]">{spice.number}</span><span className="h-px w-9 bg-[#9a7650]/[0.5] lg:mt-4 lg:block lg:w-11" /></div>
 
                 <div className={index % 2 === 1 ? "lg:order-3" : ""}>
-                  <div className="spice-specimen" aria-hidden="true">
-                    <span className="specimen-line" /><span className="specimen-dot" /><span className="specimen-letter">{spice.mark}</span>
-                    <span className="absolute left-8 bottom-8 text-[0.52rem] font-semibold uppercase tracking-[0.2em] text-[#e5c982]/[0.58]">Sri Lankan origin · selected form</span>
+                  <div className="spice-specimen">
+                    <img className="spice-specimen-photo" src={spice.image} alt={spice.imageAlt} loading="lazy" />
+                    <span className="spice-specimen-veil" aria-hidden="true" />
+                    <span className="spice-specimen-caption">Sri Lankan origin · selected form</span>
                   </div>
                 </div>
 
