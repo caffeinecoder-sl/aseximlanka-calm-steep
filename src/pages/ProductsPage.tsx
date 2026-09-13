@@ -2,36 +2,44 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import productsTeaHero from "../assets/products-tea-hero.jpg";
 import privateLabelAtelier from "../assets/private-label-atelier.jpg";
+import blackTeaExpression from "../assets/collection-single-origin.jpg";
+import greenTeaExpression from "../assets/tea-expression-green.jpg";
+import whiteTeaExpression from "../assets/tea-expression-white.jpg";
+import bespokeTeaExpression from "../assets/collection-signature-blends.jpg";
 
 const teaFamilies = [
   {
     number: "01",
-    mark: "B",
     name: "Ceylon Black Tea",
+    image: blackTeaExpression,
+    imageAlt: "Loose Ceylon black tea in a green ceramic bowl",
     description:
       "The classic expression of Ceylon: brisk, bright, aromatic, and adaptable across straight teas, breakfast styles, and signature blends.",
     grades: ["OP", "Pekoe", "BOP", "FBOP", "BOPF"],
   },
   {
     number: "02",
-    mark: "G",
     name: "Ceylon Green Tea",
+    image: greenTeaExpression,
+    imageAlt: "A pale green tea cup with loose Ceylon green tea leaves",
     description:
       "A fresher, lighter profile selected for clarity, balance, and contemporary tea programs that favour clean character.",
     grades: ["Sencha", "Gunpowder", "Young Hyson", "Chunmee"],
   },
   {
     number: "03",
-    mark: "W",
     name: "Ceylon White Tea",
+    image: whiteTeaExpression,
+    imageAlt: "Silver-tip white tea leaves beside a cup of pale tea",
     description:
       "A delicate, limited style with a quieter cup and refined presentation for premium gifting and specialist collections.",
     grades: ["Silver Tips", "Silver Needle", "White Peony"],
   },
   {
     number: "04",
-    mark: "B+",
     name: "Bespoke Blends",
+    image: bespokeTeaExpression,
+    imageAlt: "A composed loose-leaf tea blend with botanicals and spices",
     description:
       "Blends composed around a target cup, customer, market, or brand brief—from classic profiles to flavoured and specialty formats.",
     grades: ["Signature blends", "Flavoured tea", "Infusions", "Private label"],
@@ -191,16 +199,15 @@ const ProductsPage = () => {
                 data-reveal="scale"
                 data-reveal-delay={(index * 0.07).toFixed(2)}
                 key={tea.name}
-                className="tea-specimen flex flex-col p-7 sm:p-9 lg:p-10"
+                className="tea-specimen flex flex-col"
               >
                 <span className="tea-specimen-index">{tea.number} · expression</span>
 
-                <div className="tea-specimen-orb mt-8" aria-hidden="true">
-                  <span className="tea-specimen-leaf" />
-                  <span className="tea-specimen-mark">{tea.mark}</span>
+                <div className="tea-specimen-media">
+                  <img src={tea.image} alt={tea.imageAlt} loading="lazy" />
                 </div>
 
-                <div className="mt-auto pt-10">
+                <div className="tea-specimen-content mt-auto">
                   <h3 className="font-serif text-[clamp(2.7rem,4.2vw,4.8rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
                     {tea.name}
                   </h3>
